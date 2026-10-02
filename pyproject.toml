@@ -1,0 +1,19 @@
+[project]
+name = "healthcare-ml-project"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "PravinMaleya", email = "pravin.mwugusi@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=3.0.6",
+]
+
+[project.scripts]
+healthcare-ml-project = "healthcare_ml_project:main"
+
+[build-system]
+requires = ["uv_build>=0.12.9,<0.13.0"]
+build-backend = "uv_build"
