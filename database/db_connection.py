@@ -1,3 +1,4 @@
+# Handling connection to the database
 import os
 
 import psycopg
@@ -16,4 +17,4 @@ def get_connection():
         password=os.getenv("DB_PASSWORD"),
     )
 
-# Connection to the db
+
