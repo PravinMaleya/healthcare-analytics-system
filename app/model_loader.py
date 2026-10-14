@@ -1,15 +1,19 @@
+import os
 from pathlib import Path
 
 import joblib
 
-
-# Project root: parent directory of app/
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-MODEL_PATH = PROJECT_ROOT / "models" / "model.joblib"
+
+MODEL_PATH = Path(
+    os.getenv(
+        "HEALTHCARE_MODEL_PATH",
+        str(PROJECT_ROOT / "models" / "model.joblib"),
+    )
+)
 
 
 def load_model():
-    # Load the saved, fitted preprocessing and Random Forest pipeline.
     if not MODEL_PATH.exists():
         raise FileNotFoundError(
             f"Model not found at {MODEL_PATH}. "
