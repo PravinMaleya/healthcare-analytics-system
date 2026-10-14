@@ -12,3 +12,6 @@ wheels/
 .env
 # Locally saved trained model
 models/model.joblib
+
+# Runtime logs
+logs/
