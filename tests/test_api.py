@@ -54,3 +54,20 @@ def test_predict_invalid_age():
     response = client.post("/predict", json=payload)
 
     assert response.status_code == 422
+
+
+def test_predict_missing_required_field():
+    payload = {
+        "age": 27,
+        "gender": "Female",
+        "blood_type": "AB+",
+        "medical_condition": "Hypertension",
+        "insurance_provider": "UnitedHealthcare",
+        "admission_type": "Emergency",
+        # medication is intentionally missing
+    }
+
+    response = client.post("/predict", json=payload)
+
+    assert response.status_code == 422
+
