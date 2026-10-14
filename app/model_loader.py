@@ -5,11 +5,14 @@ import joblib
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-MODEL_PATH = Path(
-    os.getenv(
-        "HEALTHCARE_MODEL_PATH",
-        str(PROJECT_ROOT / "models" / "model.joblib"),
-    )
+configured_path = Path(
+    os.getenv("HEALTHCARE_MODEL_PATH", "models/model.joblib")
+)
+
+MODEL_PATH = (
+    configured_path
+    if configured_path.is_absolute()
+    else PROJECT_ROOT / configured_path
 )
 
 
