@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Test Result Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="/static/script.js" defer></script>
+</head>
+<body>
+    <main class="container">
+        <header>
+            <h1>Healthcare Test Result Predictor</h1>
+            <p>Enter patient information to get a predicted test result from the deployed machine learning model.</p>
+        </header>
+
+        <section class="form-card">
+            <form id="prediction-form">
+                <div class="form-grid">
+                    <div class="field">
+                        <label for="age">Age</label>
+                        <input type="number" id="age" name="age"
+                               min="0" max="120" step="1" required>
+                    </div>
+
+                    <div class="field">
+                        <label for="gender">Gender</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Select gender</option>
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="blood_type">Blood Type</label>
+                        <select id="blood_type" name="blood_type" required>
+                            <option value="">Select blood type</option>
+                            <option>A+</option><option>A-</option>
+                            <option>B+</option><option>B-</option>
+                            <option>AB+</option><option>AB-</option>
+                            <option>O+</option><option>O-</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="medical_condition">Medical Condition</label>
+                        <select id="medical_condition" name="medical_condition" required>
+                            <option value="">Select condition</option>
+                            <option>Arthritis</option>
+                            <option>Asthma</option>
+                            <option>Cancer</option>
+                            <option>Diabetes</option>
+                            <option>Hypertension</option>
+                            <option>Obesity</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="insurance_provider">Insurance Provider</label>
+                        <select id="insurance_provider" name="insurance_provider" required>
+                            <option value="">Select provider</option>
+                            <option>Aetna</option>
+                            <option>Blue Cross</option>
+                            <option>Cigna</option>
+                            <option>Medicare</option>
+                            <option>UnitedHealthcare</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label for="admission_type">Admission Type</label>
+                        <select id="admission_type" name="admission_type" required>
+                            <option value="">Select admission type</option>
+                            <option>Elective</option>
+                            <option>Emergency</option>
+                            <option>Urgent</option>
+                        </select>
+                    </div>
+
+                    <div class="field full-width">
+                        <label for="medication">Medication</label>
+                        <select id="medication" name="medication" required>
+                            <option value="">Select medication</option>
+                            <option>Aspirin</option>
+                            <option>Ibuprofen</option>
+                            <option>Lipitor</option>
+                            <option>Paracetamol</option>
+                            <option>Penicillin</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="buttons">
+                    <button type="submit" id="predict-button">
+                        Predict Result
+                    </button>
+                    <button type="reset" class="clear-button">
+                        Clear Form
+                    </button>
+                </div>
+            </form>
+
+            <section id="result" role="status" aria-live="polite" hidden>
+                <h2 id="result-title"></h2>
+                <p id="result-message"></p>
+            </section>
+        </section>
+
+        <p class="disclaimer">
+            This tool demonstrates machine-learning classification.
+            Predictions are not medical diagnoses and should not guide
+            clinical decisions.
+        </p>
+    </main>
+</body>
+</html>
